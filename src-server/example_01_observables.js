@@ -1,4 +1,5 @@
 import Rx from 'rxjs/Rx';
+import {createSubscriber} from './lib/util';
 
 //Part 1
 // const simple$ = new Rx.Observable(observer => {
@@ -56,13 +57,13 @@ function createInterval$(time) {
   })
 }
 
-function createSubscriber(tag){
-  return {
-     next(item) {console.log(`${tag}.next ${item}`);},
-     error(error) {console.log(`${tag}.error ${error.stack || error}`);},
-     complete() {console.log(`${tag}.complete`);}
-  }
-}
+// function createSubscriber(tag){
+//   return {
+//      next(item) {console.log(`${tag}.next ${item}`);},
+//      error(error) {console.log(`${tag}.error ${error.stack || error}`);},
+//      complete() {console.log(`${tag}.complete`);}
+//   }
+// }
 
 function take$(sourceObservable$, amount){
    return new Rx.Observable(observer => {
