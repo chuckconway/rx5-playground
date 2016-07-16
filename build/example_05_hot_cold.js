@@ -79,7 +79,8 @@ var simple$ = new _Rx2.default.Observable(function (observer) {
     };
 });
 
-var published$ = simple$.publish().refCount();
+//const published$ = simple$.publish().refCount(); the same as Ref Count
+var published$ = simple$.share();
 
 var sub1 = published$.subscribe((0, _util.createSubscriber)('one'));
 var sub2 = published$.subscribe((0, _util.createSubscriber)('two'));
