@@ -1,0 +1,3 @@
+Hot Observable - is an observable that will produce events whether you are listening or not.
+
+Cold Observable - on every subscribe, the values are generated from start to finish.
