@@ -3,19 +3,19 @@ import {createSubscriber} from './lib/util';
 
 
 // //interval
-// Rx.Observable.interval(500)
-//   .take(5)
-//   .subscribe(createSubscriber("interval"));
+Rx.Observable.interval(500)
+  .take(5)
+  .subscribe(createSubscriber("interval"));
 //
 // //timer
-// Rx.Observable.timer(1000)
-//   .subscribe(createSubscriber("timer"));
+Rx.Observable.timer(1000)
+  .subscribe(createSubscriber("timer"));
 //
 //
 // //timer with interval
-// Rx.Observable.timer(1000, 500)
-//     .take(3)
-//     .subscribe(createSubscriber("timer"));
+Rx.Observable.timer(1000, 500)
+    .take(3)
+    .subscribe(createSubscriber("timer"));
 
 Rx.Observable.of('Hello, World')
   .subscribe(createSubscriber('of'));
