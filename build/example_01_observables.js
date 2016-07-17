@@ -9,40 +9,50 @@ var _util = require('./lib/util');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //Part 1
-// const simple$ = new Rx.Observable(observer => {
-//   console.log("Generating observable");
+var simple$ = new _Rx2.default.Observable(function (observer) {
+  console.log("Generating observable");
+
+  setTimeout(function () {
+
+    observer.next("An Item!");
+
+    setTimeout(function () {
+      observer.next("Another Item!");
+      observer.complete();
+    }, 1000);
+  }, 1000);
+});
 //
-//   setTimeout(() => {
-//
-//     observer.next("An Item!");
-//
-//     setTimeout(()=> {
-//         observer.next("Another Item!");
-//         observer.complete();
-//     }, 1000);
-//
-//   }, 1000);
-// });
-//
-// simple$.subscribe(
-//    item => console.log(`one.next ${item}`), //Next
-//    error => console.log(`one.error ${error}`), //error
-//    () => console.log('one.complete') // complete
-// );
+simple$.subscribe(function (item) {
+  return console.log('one.next ' + item);
+}, //Next
+function (error) {
+  return console.log('one.error ' + error);
+}, //error
+function () {
+  return console.log('one.complete');
+} // complete
+);
 //
 //
-// setTimeout(()=>{
-//     simple$.subscribe({
-//       next: item => console.log(`two.next ${item}`),
-//       error: error => console.log(`two.error ${error}`),
-//       complete: () => console.log(`two.complete`)
-//     })
-// }, 3000);
+setTimeout(function () {
+  simple$.subscribe({
+    next: function next(item) {
+      return console.log('two.next ' + item);
+    },
+    error: function error(_error) {
+      return console.log('two.error ' + _error);
+    },
+    complete: function complete() {
+      return console.log('two.complete');
+    }
+  });
+}, 3000);
 //
 // //Generate an error.
-// const error$ = new Rx.Observable(observer => {
-//     observer.error(new Error("WHOA!"));
-// });
+var error$ = new _Rx2.default.Observable(function (observer) {
+  observer.error(new Error("WHOA!"));
+});
 
 //Part 2
 // const interval$ = new Rx.Observable(observer => {
@@ -82,8 +92,8 @@ function take$(sourceObservable$, amount) {
           observer.complete();
         }
       },
-      error: function error(_error) {
-        observer.error(_error);
+      error: function error(_error2) {
+        observer.error(_error2);
       },
       complete: function complete() {
         observer.complete();

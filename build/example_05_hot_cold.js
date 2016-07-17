@@ -14,32 +14,34 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var interval$ = _Rx2.default.Observable.interval(1000).take(10).publish();
 
-//interval$.connect();
+interval$.connect();
 
-// setTimeout(() => {
-//   interval$.connect();
-// }, 5000);
-//
-// setTimeout(()=>{
-//   interval$.subscribe(createSubscriber("one"));
-// }, 1200);
-//
-// setTimeout(()=> {
-//     interval$.subscribe(createSubscriber('two'));
-// }, 3200);
+setTimeout(function () {
+    interval$.connect();
+}, 5000);
 
-// const socket = {on: () => {}};
-//
-// const $chatMessages = new Rx.Observable(observer => {
-//     console.log("subscribe");
-//
-//     socket.on('chat:message', message => observer.next(message));
-// }).publish();
-//
-// $chatMessages.connect();
-//
-// $chatMessages.subscribe(createSubscriber('one'));
-// $chatMessages.subscribe(createSubscriber('two'));
+setTimeout(function () {
+    interval$.subscribe((0, _util.createSubscriber)("one"));
+}, 1200);
+
+setTimeout(function () {
+    interval$.subscribe((0, _util.createSubscriber)('two'));
+}, 3200);
+
+var socket = { on: function on() {} };
+
+var $chatMessages = new _Rx2.default.Observable(function (observer) {
+    console.log("subscribe");
+
+    socket.on('chat:message', function (message) {
+        return observer.next(message);
+    });
+}).publish();
+
+$chatMessages.connect();
+
+$chatMessages.subscribe((0, _util.createSubscriber)('one'));
+$chatMessages.subscribe((0, _util.createSubscriber)('two'));
 
 // const simple$ = new Rx.Observable(observer => {
 //     observer.next('one');
@@ -53,7 +55,8 @@ var interval$ = _Rx2.default.Observable.interval(1000).take(10).publish();
 // published$.subscribe(createSubscriber('one'));
 // published$.connect();
 // published$.subscribe(createSubscriber('two'));
-
+//
+//
 // const simple$ = new Rx.Observable(observer => {
 //     observer.next('one');
 //     observer.next('two');

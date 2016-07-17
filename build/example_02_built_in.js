@@ -9,19 +9,14 @@ var _util = require('./lib/util');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // //interval
-// Rx.Observable.interval(500)
-//   .take(5)
-//   .subscribe(createSubscriber("interval"));
+_Rx2.default.Observable.interval(500).take(5).subscribe((0, _util.createSubscriber)("interval"));
 //
 // //timer
-// Rx.Observable.timer(1000)
-//   .subscribe(createSubscriber("timer"));
+_Rx2.default.Observable.timer(1000).subscribe((0, _util.createSubscriber)("timer"));
 //
 //
 // //timer with interval
-// Rx.Observable.timer(1000, 500)
-//     .take(3)
-//     .subscribe(createSubscriber("timer"));
+_Rx2.default.Observable.timer(1000, 500).take(3).subscribe((0, _util.createSubscriber)("timer"));
 
 _Rx2.default.Observable.of('Hello, World').subscribe((0, _util.createSubscriber)('of'));
 

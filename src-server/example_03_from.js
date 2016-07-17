@@ -3,14 +3,14 @@ import {createSubscriber} from './lib/util';
 import fs from 'fs';
 
 //old
-fs.readdir('./src-server', (err, items) = > {
-
-  if(err){
-    console.error(err);
-  } else {
-    console.log(items);
-  }
-});
+// fs.readdir('./src-server', (err, items) = > {
+//
+//   if(err){
+//     console.error(err);
+//   } else {
+//     console.log(items);
+//   }
+// });
 
 
 //From, mergeMap, Map

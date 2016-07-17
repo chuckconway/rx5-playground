@@ -25,16 +25,16 @@ setTimeout(()=> {
     intervalSubject$.subscribe(createSubscriber('look at me!'));
 }, 3000)
 
-const currentUser$ = new Rx.Subject();
-const isloggedIn$  = currentUser$.map(u => u.isloggedIn);
-
-isLoggedIn$.subscribe(createSubscriber("isLoggedIn"));
-
-currentUser$.next({isLoggedIn:false});
-
-setTimeout(() => {
-    currentUser$.next({isLoggedIn:true, name:'chuck'});
-}, 2000);
+// const currentUser$ = new Rx.Subject();
+// const isloggedIn$  = currentUser$.map(u => u.isloggedIn);
+//
+// isLoggedIn$.subscribe(createSubscriber("isLoggedIn"));
+//
+// currentUser$.next({isLoggedIn:false});
+//
+// setTimeout(() => {
+//     currentUser$.next({isLoggedIn:true, name:'chuck'});
+// }, 2000);
 
 
 const currentUser$ = new Rx.BehaviorSubject({isloggedIn:false});

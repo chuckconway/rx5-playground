@@ -23,12 +23,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // });
 
 //From, mergeMap, Map
-// const readdir$ = Rx.Observable.bindNodeCallback(fs.readdir);
-//
-// readdir$('./src-server')
-//   .mergeMap(files => Rx.Observable.from(files))
-//   .map(file => `Manipulated ${file}`)
-//   .subscribe(createSubscriber('readdir'));
+var readdir$ = _Rx2.default.Observable.bindNodeCallback(_fs2.default.readdir);
+
+readdir$('./src-server').mergeMap(function (files) {
+  return _Rx2.default.Observable.from(files);
+}).map(function (file) {
+  return 'Manipulated ' + file;
+}).subscribe((0, _util.createSubscriber)('readdir'));
 
 //Promise
 function getItem() {
